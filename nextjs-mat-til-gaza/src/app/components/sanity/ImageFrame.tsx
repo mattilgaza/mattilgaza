@@ -14,17 +14,17 @@ export default function ImageFrame({
 }: Props) {
     return (
         <div className={className}>
-            {gallery.map((img, i) => (
+            {(Array.isArray(gallery) ? gallery : gallery ? [gallery] : []).map((img, i) => (
                 <div
                     key={img._key || i}
                     className={`
-                        relative
-                        rounded-lg
-                        border-4
-                        border-white
-                        shadow-sm
-                        ${frameClassName}
-                    `}
+          relative
+          rounded-lg
+          border-4
+          border-white
+          shadow-sm
+          ${frameClassName}
+        `}
                 >
                     <SanityImage
                         image={img}

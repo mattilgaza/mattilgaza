@@ -32,8 +32,14 @@ export const forside = defineType({
             validation: (rule) => rule.required(),
         }),
         defineField({
-            name: 'image',
-            type: 'image',
+            name: 'gallery',
+            type: 'array',
+            of: [
+                { type: 'image' }
+            ],
+            options: {
+                layout: 'grid'
+            }
         }),
         defineField({
             name: 'body',
