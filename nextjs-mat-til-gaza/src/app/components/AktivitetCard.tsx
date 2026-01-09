@@ -1,13 +1,13 @@
 "use client";
 
-import SanityImage from "@/app/components/sanity/Image";
-import type { GalleryImage } from "@/app/types/sanity/gallery";
+import SanityImage from "@/app/components/sanity/SanityImage";
+import type { SanityImageType } from "@/app/types/sanity/gallery";
 import Link from "next/link";
 
 interface Props {
     data: {
         title: string;
-        gallery: GalleryImage[];
+        gallery: SanityImageType[];
         subtitle: string
     };
     index1?: number;
@@ -62,30 +62,22 @@ export default function AktivitetCard({
                     {/* Left Image */}
                     <div className="relative w-24 h-32 z-10 translate-y-4 translate-x-6 -rotate-6 transition-transform duration-300 hover:scale-110 hover:z-50 overflow-hidden rounded-lg shadow-md border-4 border-white">
                         <SanityImage
-                            image={data.gallery[index1]}
-                            fill
-                            className="object-cover"
-                            priority
+                            SanityImage={data.gallery[index1]}
                         />
                     </div>
 
                     {/* Center Image */}
                     <div className="relative w-28 h-36 z-20 -translate-y-2 transition-transform duration-300 hover:scale-110 hover:z-50 overflow-hidden rounded-lg shadow-xl border-4 border-white">
                         <SanityImage
-                            image={data.gallery[index2]}
-                            fill
-                            className="object-cover"
-                            priority
+                            SanityImage={data.gallery[index2]}
+
                         />
                     </div>
 
                     {/* Right Image */}
                     <div className="relative w-24 h-32 z-10 translate-y-4 -translate-x-6 rotate-6 transition-transform duration-300 hover:scale-110 hover:z-50 overflow-hidden rounded-lg shadow-md border-4 border-white">
                         <SanityImage
-                            image={data.gallery[index3]}
-                            fill
-                            className="object-cover"
-                            priority
+                            SanityImage={data.gallery[index3]}
                         />
                     </div>
 

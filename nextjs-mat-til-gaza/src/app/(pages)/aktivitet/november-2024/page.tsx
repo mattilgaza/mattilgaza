@@ -1,7 +1,7 @@
 import { client } from "@/app/lib/sanity/client";
 import Link from "next/link";
 import { NOV_2024_QUERY } from "@/app/types/sanity/groq_queries";
-import ImageFrame from "@/app/components/sanity/ImageFrame";
+import SanityImageFrame from "@/app/components/sanity/SanityImageFrame";
 
 export default async function Page() {
 
@@ -30,18 +30,20 @@ export default async function Page() {
             <section>
 
                 <div className="max-w-7xl mx-auto">
-                    <ImageFrame
+                    <SanityImageFrame
                         gallery={nov_2024.gallery.slice(0, 4)}
-                        className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4"
-                        frameClassName="aspect-[5/4]"
+                        width={400}
+                        height={300}
+                        className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4"
                     />
                 </div>
 
                 <div className="max-w-7xl mx-auto">
-                    <ImageFrame
+                    <SanityImageFrame
                         gallery={nov_2024.gallery.slice(4, 8)}
+                        width={300}
+                        height={400}
                         className="grid grid-cols-1 md:grid-cols-4 gap-4"
-                        frameClassName="aspect-[4/5]"
                     />
                 </div>
 

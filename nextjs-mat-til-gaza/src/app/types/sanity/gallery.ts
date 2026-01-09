@@ -2,9 +2,13 @@
 
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
-export type GalleryImage = SanityImageSource & {
-  _key: string;
+export type SanityImageType = SanityImageSource & {
+  _key?: string;
   alt?: string;
+  asset: {
+    _ref: string;
+    _type: "reference";
+  };
 };
 
-export type GalleryImages = GalleryImage[];
+export type SanityImageOrGallery = SanityImageType | SanityImageType[];

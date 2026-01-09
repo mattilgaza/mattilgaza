@@ -1,7 +1,7 @@
 import { client } from "@/app/lib/sanity/client";
 import { PortableText } from "@portabletext/react";
-import ImageFrame from "@/app/components/sanity/ImageFrame";
-import type { GalleryImage, GalleryImages } from "@/app/types/sanity/gallery";
+import SanityImageFrame from "@/app/components/sanity/SanityImageFrame";
+import type { SanityImageOrGallery, SanityImageType } from "@/app/types/sanity/gallery";
 import Link from "next/link";
 import { JAN_2025_QUERY } from "@/app/types/sanity/groq_queries";
 
@@ -11,7 +11,7 @@ export default async function Page() {
     const jan_2025 = await client.fetch(JAN_2025_QUERY);
 
     // Set image types for gallery
-    const gallery: GalleryImages = jan_2025.gallery as GalleryImage[];
+    const gallery: SanityImageOrGallery = jan_2025.gallery as SanityImageType[];
 
     return (
         <main className="flex flex-col gap-0 max-w-7xl justify-center mx-auto px-4 py-6">
@@ -44,10 +44,11 @@ export default async function Page() {
             </section>
 
             {/* Gallery*/}
-            <ImageFrame
+            <SanityImageFrame
                 gallery={jan_2025.gallery.slice(0, 10)}
+                width={300}
+                height={400}
                 className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"
-                frameClassName="aspect-[4/5] max-h-96"
             />
 
             <section className="mb-12">

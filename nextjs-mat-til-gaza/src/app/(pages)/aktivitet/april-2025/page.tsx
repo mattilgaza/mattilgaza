@@ -1,6 +1,6 @@
 import { client } from "@/app/lib/sanity/client";
 import { PortableText } from "@portabletext/react";
-import ImageFrame from "@/app/components/sanity/ImageFrame";
+import ImageFrame from "@/app/components/sanity/SanityImageFrame";
 import { APR_2025_QUERY } from "@/app/types/sanity/groq_queries";
 
 export default async function Page() {

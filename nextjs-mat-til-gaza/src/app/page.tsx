@@ -60,7 +60,6 @@ export default async function Page() {
             </div>
           </div>
 
-
           {/* Text body */}
           <div className="text-lg text-justify py-8 relative max-w-2xl mx-auto p-6 space-y-4">
             <PortableText value={introduksjon.body.slice(0, 1)} />

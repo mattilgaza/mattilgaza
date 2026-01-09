@@ -2,7 +2,7 @@ import { client } from "@/app/lib/sanity/client";
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import { OCT_2024_QUERY } from "@/app/types/sanity/groq_queries";
-import ImageFrame from "@/app/components/sanity/ImageFrame";
+import SanityImageFrame from "@/app/components/sanity/SanityImageFrame";
 
 
 
@@ -33,10 +33,11 @@ export default async function Page() {
 
             <section>
 
-                <ImageFrame
+                <SanityImageFrame
                     gallery={oct_2024.gallery.slice(0, 10)}
-                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"
-                    frameClassName="aspect-[4/5] max-h-96"
+                    width={300}
+                    height={400}
+                    className="grid grid-cols-4 gap-4"
                 />
 
             </section>
@@ -54,10 +55,11 @@ export default async function Page() {
 
                 </div>
 
-                <ImageFrame
+                <SanityImageFrame
                     gallery={oct_2024.gallery.slice(10)}
-                    className="grid grid-cols-1 md:grid-cols-1 gap-4"
-                    frameClassName="aspect-[5/4]"
+                    width={400}
+                    height={500}
+                    className="justify-self-center"
                 />
 
                 {/* Video 1 */}

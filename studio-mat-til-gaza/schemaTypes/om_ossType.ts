@@ -31,6 +31,16 @@ export const om_oss = defineType({
             type: 'image',
         }),
         defineField({
+            name: 'gallery',
+            type: 'array',
+            of: [
+                { type: 'image' }
+            ],
+            options: {
+                layout: 'grid'
+            }
+        }),
+        defineField({
             name: 'body',
             type: 'array',
             of: [{ type: 'block' }],
