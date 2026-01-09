@@ -1,6 +1,6 @@
 import { client } from "@/app/lib/sanity/client";
 import { PortableText } from "@portabletext/react";
-import ImageFrame from "@/app/components/sanity/SanityImageFrame";
+import SanityImageFrame from "@/app/components/sanity/SanityImageFrame";
 import { APR_2025_QUERY } from "@/app/types/sanity/groq_queries";
 
 export default async function Page() {
@@ -21,7 +21,7 @@ export default async function Page() {
 
                 </div>
 
-                <video className="w-full rounded-lg shadow-sm mt-4 mb-4 border-4 border-white" autoPlay controls muted loop>
+                <video className="w-full rounded-lg shadow-sm mt-4 border-4 border-white" autoPlay controls muted loop>
                     <source src="/videos/sending_4.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
@@ -31,16 +31,18 @@ export default async function Page() {
             <section className="grid gap-6">
 
                 {/* Gallery*/}
-                <ImageFrame
+                <SanityImageFrame
                     gallery={apr_2025.gallery.slice(0, 4)}
-                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4"
-                    frameClassName="aspect-[16/9]"
+                    width={600}
+                    height={300}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto"
                 />
 
-                <ImageFrame
+                <SanityImageFrame
                     gallery={apr_2025.gallery.slice(4, 6)}
-                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4"
-                    frameClassName="aspect-[5/4] max-h-96 w-full"
+                    width={600}
+                    height={400}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto"
                 />
 
             </section>
