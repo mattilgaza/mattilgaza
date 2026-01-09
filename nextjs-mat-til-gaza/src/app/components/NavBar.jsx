@@ -36,12 +36,7 @@ export default function NavBar() {
                     </li>
                     <li>
                         <Link href="/vipps" onClick={() => setSidebarVisible(false)} className={linkClass("/vipps")}>
-                            Gi Her
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/om_foreningen" onClick={() => setSidebarVisible(false)} className="block px-4 py-2 rounded text-cotton hover:bg-gray-300">
-                            Om Foreningen
+                            Vipps
                         </Link>
                     </li>
                     <li>
@@ -65,10 +60,10 @@ export default function NavBar() {
 
                 <ul className="hidden md:flex items-center space-x-6 text-lg">
                     <li className="hover:bg-gray-700 rounded px-3 py-1">
-                        <Link href="/vipps" className={linkClass("/vipps")}>Vipps</Link>
+                        <Link href="/" className={linkClass("/")}>Forside</Link>
                     </li>
                     <li className="hover:bg-gray-700 rounded px-3 py-1">
-                        <Link href="/om_foreningen" className={linkClass("/om_foreningen")}>Om Foreningen</Link>
+                        <Link href="/vipps" className={linkClass("/vipps")}>Vipps</Link>
                     </li>
                     <li className="hover:bg-gray-700 rounded px-3 py-1">
                         <Link href="/om_oss" className={linkClass("/om_oss")}>Om Oss</Link>

@@ -16,6 +16,8 @@ export const FORSIDE_HEADER_QUERY = `*[_type == "forside" && slug.current == "he
 
 export const INTRO_QUERY = `*[_type == "forside" && slug.current == "introduksjon"][0]{title, subtitle, body}`;
 
+export const OM_FORENINGEN_QUERY = `*[_type == "om_foreningen" && slug.current == "om-foreningen"][0]{title, body}`;
+
 export const OM_OSS_QUERY = `*[_type == "om_oss" && slug.current == "om-oss"][0]{
   title,
   image,

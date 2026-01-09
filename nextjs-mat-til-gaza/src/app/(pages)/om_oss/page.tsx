@@ -1,35 +1,60 @@
 import { client } from "@/app/lib/sanity/client";
 import { PortableText } from "@portabletext/react";
-import { OM_OSS_QUERY } from "@/app/types/sanity/groq_queries";
+import { OM_OSS_QUERY, OM_FORENINGEN_QUERY } from "@/app/types/sanity/groq_queries";
 import SanityImageFrame from "@/app/components/sanity/SanityImageFrame";
 
-export default async function OmOssPage() {
+export default async function Page() {
 
     const om_oss = await client.fetch(OM_OSS_QUERY);
+    const om_foreningen = await client.fetch(OM_FORENINGEN_QUERY);
 
     return (
-        <main className="flex flex-col md:flex-row gap-6 max-w-5xl mx-auto px-4 py-16">
+        <main className="grid grid-cols-1">
 
-            <section className="">
 
-                <SanityImageFrame
-                    gallery={om_oss.gallery}
-                    width={300}
-                    height={400}
-                />
 
-            </section>
+            <section className="grid grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto mt-12 items-center">
 
-            <section className="">
+                <div className="mx-4 mb-4">
+                    <SanityImageFrame
+                        gallery={om_oss.gallery}
+                        width={450}
+                        height={500}
 
-                <div className="">
-                    <h2 className="text-3xl font-size-xl mb-4">{om_oss.title}</h2>
+                    />
+                </div>
+
+                <div className="text-justify mx-4">
+                    <h2 className="text-4xl mb-4">{om_oss.title}</h2>
                     <div className="mb-4 "> <PortableText value={om_oss.body.slice(0, 1)} /> </div>
                     <div className="mb-4 "> <PortableText value={om_oss.body.slice(1, 2)} /> </div>
                     <div className="mb-4 "> <PortableText value={om_oss.body.slice(2, 3)} /> </div>
                     <div className="mb-4 "> <PortableText value={om_oss.body.slice(3, 4)} /> </div>
                     <div className="mb-4 "> <PortableText value={om_oss.body.slice(4, 5)} /> </div>
                     <div className="mb-4 "> <PortableText value={om_oss.body.slice(5, 6)} /> </div>
+
+                    <div className="mt-8">
+
+                        <button>
+                            <a href="/aktivitet" className="text-2xl font-size-xl font-bold text-cotton mb-6 bg-gray-800 border-2 border-gray-700 px-4 py-2 rounded-lg hover:bg-gray-700">Se hvordan donasjonene hjelper!</a>
+                        </button>
+
+                    </div>
+                </div>
+
+            </section>
+
+            <section className="grid grid-cols-1 md:grid-cols-2 rounded-lg p-8 bg-background items-center my-12">
+
+                <div className="mx-auto mb-4">
+                    <div className="text-4xl mb-4 font-bold">{om_foreningen.title}</div>
+                </div>
+
+                <div className="text-left">
+                    <div className="text-2xl font-size-xl mb-4 rounded-lg p-2"><PortableText value={om_foreningen.body.slice(0, 1)} /></div>
+                    <div className="text-2xl font-size-xl mb-4 rounded-lg p-2"><PortableText value={om_foreningen.body.slice(1, 2)} /></div>
+                    <div className="text-2xl font-size-xl mb-4 rounded-lg p-2"><PortableText value={om_foreningen.body.slice(2, 3)} /></div>
+
                 </div>
 
             </section>
