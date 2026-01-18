@@ -29,7 +29,7 @@ export default function SanityImage({
             src={imageUrl}
             alt={SanityImage.alt ?? "Gallery Image"}
             fill={true}
-            className={`object-fit transition-transform duration-300 hover:scale-105 hover:z-50 ${className}`}
+            className={`object-cover transition-transform duration-300 hover:scale-105 hover:z-50 ${className}`}
         />
     );
 }

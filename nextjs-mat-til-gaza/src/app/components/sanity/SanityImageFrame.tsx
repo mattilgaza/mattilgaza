@@ -1,33 +1,30 @@
-import type { SanityImageOrGallery } from "@/app/types/sanity/gallery";
-import SanityImage from "@/app/components/sanity/SanityImage";
+import type { SanityGallery } from "@/app/types/sanity/gallery";
+import SanityImage from "./SanityImage";
 
 interface Props {
-    gallery?: SanityImageOrGallery;
-    width?: number;
-    height?: number;
+    gallery?: SanityGallery | SanityGallery[number];
     className?: string;
 }
 
-export default function SanityImageFrame({
-    gallery,
-    width = 300,
-    height = 300,
-    className = "",
-}: Props) {
-    const images = Array.isArray(gallery) ? gallery : gallery ? [gallery] : [];
+export default function SanityImageFrame({ gallery, className = "" }: Props) {
+    const images = Array.isArray(gallery)
+        ? gallery
+        : gallery
+            ? [gallery]
+            : [];
+
+    if (images.length === 0) return null;
 
     return (
-        <div className={`flex ${className}`}>
+        <>
             {images.map((img, i) => (
                 <div
                     key={img._key ?? i}
-                    className="relative rounded-lg border-4 border-white shadow-sm"
-                    style={{ width, height }}
+                    className={`relative w-full h-full ${className}`}
                 >
                     <SanityImage SanityImage={img} />
                 </div>
             ))}
-        </div>
+        </>
     );
 }
-

@@ -15,12 +15,10 @@ export default async function Page() {
 
             <section className="grid grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto mt-12 items-center">
 
-                <div className="mx-4 mb-4">
+                <div className="mx-4 h-[30rem]">
                     <SanityImageFrame
                         gallery={om_oss.gallery}
-                        width={450}
-                        height={500}
-
+                        className="h-full w-full object-cover"
                     />
                 </div>
 

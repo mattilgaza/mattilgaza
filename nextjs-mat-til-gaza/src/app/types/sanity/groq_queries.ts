@@ -40,6 +40,8 @@ export const STATUS_UPDATE_271225_QUERY = `*[_type == "aktivitet" && slug.curren
 
 export const SPLEIS_INITIATIV_QUERY = `*[_type == "aktivitet" && slug.current == "januar-2026"][0]{title, subtitle, body}`;
 
+export const AKTIVITET_QUERY = `*[_type == "aktivitet"]`;
+
 export const OCT_2024_QUERY = `*[_type == "aktivitet" && slug.current == "oktober-2024"][0]{
   title,
   gallery[]{

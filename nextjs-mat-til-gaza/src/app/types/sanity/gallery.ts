@@ -11,4 +11,4 @@ export type SanityImageType = SanityImageSource & {
   };
 };
 
-export type SanityImageOrGallery = SanityImageType | SanityImageType[];
+export type SanityGallery = SanityImageType[];

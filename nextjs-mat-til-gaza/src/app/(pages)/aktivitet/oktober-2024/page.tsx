@@ -3,48 +3,74 @@ import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import { OCT_2024_QUERY } from "@/app/types/sanity/groq_queries";
 import SanityImageFrame from "@/app/components/sanity/SanityImageFrame";
-
-
+import { ArrowLeft, Calendar } from "lucide-react";
+import { SanityImageType } from "@/app/types/sanity/gallery";
 
 export default async function Page() {
 
-    // Fetch data for each entry
-    const oct_2024 = await client.fetch(OCT_2024_QUERY);
+    const oct_2024 = await client.fetch(OCT_2024_QUERY);  // Fetch data
 
     return (
-        <main className="flex flex-col gap-6 max-w-7xl justify-center mx-auto px-4 py-6">
+        <main className="bg-background">
 
+            <section className="grid grid-cols-1 bg-slate-200 px-16 py-16">
 
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
+                <div className="col-span-2">
 
-                <div className="col-span-2 md:col-span-1 flex flex-col justify-center items-center p-8 text-justify">
+                    <button className="text-slate-600 hover:text-black">
+                        <Link href="/aktivitet" className="flex items-center gap-2">
+                            <ArrowLeft className="w-4 h-4" />
+                            Tilbake
+                        </Link>
+                    </button>
 
-                    <div className="text-3xl font-size-xl mb-4"> {oct_2024.title} </div>
-                    <div className="mb-4 font-semibold"> <PortableText value={oct_2024.body.slice(0, 1)} /> </div>
+                    <div className="flex items-center font-bold text-lg tracking-widest uppercase mb-8">
+                        <Calendar className="w-4 h-4 mr-2" />
+                        {oct_2024.title}
+                    </div>
 
                 </div>
 
-                <video className="w-full rounded-lg shadow-sm mt-4 mb-4 border-4 border-white" autoPlay controls muted loop>
-                    <source src="/videos/sending1.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[40%_60%] bg-slate-200 px-16">
+
+                    <div>
+                        {oct_2024.body && (
+                            <div className="text-justify text-xl md:mr-16">
+                                <PortableText value={oct_2024.body.slice(0, 1)} />
+                            </div>
+                        )}
+                    </div>
+
+                    <div className="mt-8 md:mt-[-3rem]">
+                        <video className="rounded-2xl" autoPlay controls muted loop>
+                            <source src="/videos/sending1.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+
+                </div>
 
             </section>
 
-            <section>
+            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-16">
 
-                <SanityImageFrame
-                    gallery={oct_2024.gallery.slice(0, 10)}
-                    width={300}
-                    height={400}
-                    className="grid grid-cols-4 gap-4"
-                />
+                {oct_2024.gallery.slice(0, 10).map((image: SanityImageType) => (
+                    <div
+                        key={image._key}
+                        className="w-full max-w-md aspect-[4/3] hover:shadow-xl transition-shadow duration-300 mx-auto"
+                    >
+                        <SanityImageFrame
+                            gallery={[image]} // single image per card
+                            className="w-full h-full rounded-2xl overflow-hidden"
+                        />
+                    </div>
+                ))}
 
             </section>
 
-            <section className="grid grid-cols-1 md:grid-cols-2 justify-center gap-4 bg-gray-200 p-4">
+            <section className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-[70%_30%] xl:grid-cols-[60%_25%] justify-center items-center gap-4 bg-gray-200 p-16">
 
-                <div className="col-span-2 md:col-span-1 justify-center items-center px-8 text-justify mt-6">
+                <div className="justify-center items-center px-8 text-justify mt-6 mr-0 xl:mr-12">
 
                     <div className="mb-4 font-semibold"> <PortableText value={oct_2024.body.slice(1, 2)} /> </div>
                     <div className="mb-4"> <PortableText value={oct_2024.body.slice(2, 3)} /> </div>
@@ -55,15 +81,18 @@ export default async function Page() {
 
                 </div>
 
-                <SanityImageFrame
-                    gallery={oct_2024.gallery.slice(10)}
-                    width={400}
-                    height={500}
-                    className="justify-self-center"
-                />
+                <div className="w-full max-w-md aspect-[3/4] mx-auto">
+                    <SanityImageFrame
+                        gallery={oct_2024.gallery.slice(10)}
+                        className="w-full h-full rounded-2xl overflow-hidden"
+                    />
+                </div>
 
-                {/* Video 1 */}
-                <div className="rounded-lg shadow-sm border-4 border-white aspect-video overflow-hidden">
+            </section>
+
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-4 px-16 pb-16 justify-center bg-gray-200">
+
+                <div className="col-span-2 md:col-span-1 rounded-lg shadow-sm border-4 border-white aspect-video overflow-hidden">
                     <video
                         className="object-cover w-full h-full object-[80%_20%]"
                         autoPlay
@@ -76,8 +105,7 @@ export default async function Page() {
                     </video>
                 </div>
 
-                {/* Video 2 */}
-                <div className="rounded-lg shadow-sm border-4 border-white aspect-video overflow-hidden">
+                <div className="col-span-2 md:col-span-1 rounded-lg shadow-sm border-4 border-white aspect-video overflow-hidden">
                     <video
                         className="object-cover w-full h-full object-[70%_30%]"
                         autoPlay
@@ -90,13 +118,34 @@ export default async function Page() {
                     </video>
                 </div>
 
-            </section>
+                <div className="grid col-span-2 justify-center items-center my-8 shadow-lg">
 
-            <section>
+                    <div className="text-center border-2 p-8 rounded-lg">
 
-                <button className="mt-4 mb-12 px-6 py-2 bg-gray-800 text-white rounded hover:bg-gray-700">
-                    <Link href="/aktivitet">Gå tilbake til alle aktiviteter</Link>
-                </button>
+                        <div className="font-bold text-xl mb-2">
+                            Vil du bidra til neste leveranse?
+                        </div>
+                        <div className=" text-md mb-6">
+                            Ditt bidrag gjør det mulig for oss å fortsette dette arbeidet.
+                        </div>
+                        <a
+                            href="/vipps"
+                            className="block border-2 border-[red] py-3 bg-vipps text-white shadow-md rounded-xl font-bold text-center transition-all duration-150 ease-out active:scale-95 active:shadow-inner hover:bg-white hover:text-vipps"
+                        >
+                            Støtt med Vipps
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div className="grid col-span-2 justify-center items-center mb-12">
+
+                    <button className="mt-4 px-6 py-2 bg-gray-800 text-white rounded hover:bg-gray-700">
+                        <Link href="/aktivitet">Gå tilbake til alle aktiviteter</Link>
+                    </button>
+
+                </div>
 
             </section>
 
