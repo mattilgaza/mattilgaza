@@ -69,11 +69,11 @@ export default async function Page() {
             </section>
 
 
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-4 px-16 pb-16 justify-center bg-gray-200">
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-4 px-16 pb-12 justify-center bg-gray-200">
 
-                <div className="grid col-span-2 justify-center items-center my-8 shadow-lg">
+                <div className="grid col-span-2 justify-center items-center mt-12">
 
-                    <div className="text-center border-2 p-8 rounded-lg">
+                    <div className="text-center border-2 p-8 rounded-lg bg-cotton shadow-md">
 
                         <div className="font-bold text-xl mb-2">
                             Vil du bidra til neste leveranse?
@@ -94,8 +94,8 @@ export default async function Page() {
 
                 <div className="grid col-span-2 justify-center items-center mb-12">
 
-                    <button className="mt-4 px-6 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 shadow-[10px_10px_15px_rgba(0,0,0,0.35)]">
-                        <Link href="/aktivitet">Gå tilbake til alle aktiviteter</Link>
+                    <button className="flex items-center gap-2 mb-8 text-slate-600 hover:text-black">
+                        <Link href="/aktivitet"><ArrowLeft className="w-4 h-4 inline-block mr-2" />Tilbake</Link>
                     </button>
 
                 </div>

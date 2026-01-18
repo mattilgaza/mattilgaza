@@ -125,7 +125,7 @@ export default async function Page() {
                         <div className="font-bold text-xl mb-2">
                             Vil du bidra til neste leveranse?
                         </div>
-                        <div className=" text-md mb-6">
+                        <div className="text-md mb-6">
                             Ditt bidrag gjør det mulig for oss å fortsette dette arbeidet.
                         </div>
                         <a
@@ -141,8 +141,8 @@ export default async function Page() {
 
                 <div className="grid col-span-2 justify-center items-center mb-12">
 
-                    <button className="px-6 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 shadow-[10px_10px_15px_rgba(0,0,0,0.35)]">
-                        <Link href="/aktivitet">Gå tilbake til alle aktiviteter</Link>
+                    <button className="flex items-center gap-2 mb-8 text-slate-600 hover:text-black">
+                        <Link href="/aktivitet"><ArrowLeft className="w-4 h-4 inline-block mr-2" />Tilbake</Link>
                     </button>
 
                 </div>

@@ -38,7 +38,7 @@ export const STATUS_UPDATE_121125_QUERY = `*[_type == "aktivitet" && slug.curren
 
 export const STATUS_UPDATE_271225_QUERY = `*[_type == "aktivitet" && slug.current == "desember-2025"][0]{title, subtitle, body}`;
 
-export const SPLEIS_INITIATIV_QUERY = `*[_type == "aktivitet" && slug.current == "januar-2026"][0]{title, subtitle, body}`;
+export const SPLEIS_INITIATIV_QUERY = `*[_type == "aktivitet" && slug.current == "juli-2025"][0]{title, subtitle, body}`;
 
 export const AKTIVITET_QUERY = `*[_type == "aktivitet"]`;
 
