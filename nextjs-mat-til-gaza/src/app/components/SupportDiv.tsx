@@ -9,7 +9,7 @@ export default function SupportSection() {
 
         <div className="max-w-2xl mx-auto">
 
-            <div className="border-2 p-8 shadow-lg rounded-lg">
+            <div className="p-8 shadow-lg rounded-lg bg-cotton">
 
                 <div className="font-bold text-xl mb-2">
                     Vil du bidra til neste leveranse?
@@ -20,7 +20,7 @@ export default function SupportSection() {
                 <a
                     href="/vipps"
                     onClick={() => setSelected(null)}
-                    className="block w-full border-2 border-[red] py-3 bg-vipps text-white shadow-md rounded-xl font-bold text-center transition-all duration-150 ease-out active:scale-95 active:shadow-inner hover:bg-white hover:text-vipps"
+                    className="block w-full border-2 border-[red] py-3 bg-vipps text-white shadow-[10px_10px_15px_rgba(0,0,0,0.35)] rounded-xl font-bold text-center transition-all duration-150 ease-out active:scale-95 active:shadow-inner hover:bg-white hover:text-vipps"
                 >
                     Støtt med Vipps
                 </a>

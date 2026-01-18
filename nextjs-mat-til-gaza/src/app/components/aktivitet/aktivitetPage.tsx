@@ -9,6 +9,7 @@ import { ArrowLeft, ChevronRight, Calendar } from "lucide-react";
 import { sortActivitiesByTitle } from "@/app/lib/sanity/sortActivities";
 import { hasActivityVideo } from "@/app/lib/hasActivityVideo";
 import SupportDiv from "@/app/components/SupportDiv";
+import Link from "next/link";
 
 interface Props {
     activities: ActivityDetail[];
@@ -83,7 +84,19 @@ export default function ActivityPage({ activities }: Props) {
 
                 </section>
 
-                <div className="mx-16 mb-24 mt-12"><SupportDiv /></div>
+                <section className="bg-slate-200 mt-12 pt-12">
+
+                    <div className="mx-16 mb-12"><SupportDiv /></div>
+
+                    <div className="grid col-span-2 justify-center items-center mb-12">
+
+                        <button className="mb-12 px-6 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 shadow-[10px_10px_15px_rgba(0,0,0,0.35)]">
+                            <Link href="/aktivitet">Gå tilbake til alle aktiviteter</Link>
+                        </button>
+
+                    </div>
+
+                </section>
 
             </main>
         );

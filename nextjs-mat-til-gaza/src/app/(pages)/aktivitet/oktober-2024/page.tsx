@@ -118,9 +118,9 @@ export default async function Page() {
                     </video>
                 </div>
 
-                <div className="grid col-span-2 justify-center items-center my-8 shadow-lg">
+                <div className="grid col-span-2 justify-center items-center my-8">
 
-                    <div className="text-center border-2 p-8 rounded-lg">
+                    <div className="text-center p-8 rounded-lg bg-cotton shadow-md">
 
                         <div className="font-bold text-xl mb-2">
                             Vil du bidra til neste leveranse?
@@ -130,7 +130,7 @@ export default async function Page() {
                         </div>
                         <a
                             href="/vipps"
-                            className="block border-2 border-[red] py-3 bg-vipps text-white shadow-md rounded-xl font-bold text-center transition-all duration-150 ease-out active:scale-95 active:shadow-inner hover:bg-white hover:text-vipps"
+                            className="block border-2 border-[red] py-3 bg-vipps text-white shadow-[10px_10px_15px_rgba(0,0,0,0.35)] rounded-xl font-bold text-center transition-all duration-150 ease-out active:scale-95 active:shadow-inner hover:bg-white hover:text-vipps"
                         >
                             Støtt med Vipps
                         </a>
@@ -141,7 +141,7 @@ export default async function Page() {
 
                 <div className="grid col-span-2 justify-center items-center mb-12">
 
-                    <button className="mt-4 px-6 py-2 bg-gray-800 text-white rounded hover:bg-gray-700">
+                    <button className="px-6 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 shadow-[10px_10px_15px_rgba(0,0,0,0.35)]">
                         <Link href="/aktivitet">Gå tilbake til alle aktiviteter</Link>
                     </button>
 
