@@ -36,7 +36,7 @@ export default function ActivityPage({ activities }: Props) {
         return (
             <main className="mx-auto">
 
-                <section className="p-16">
+                <section className="p-4 md:p-16">
 
                     <button
                         onClick={() => setSelected(null)}
