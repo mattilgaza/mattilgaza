@@ -17,9 +17,9 @@ export function sortActivitiesByTitle(a: { title: string }, b: { title: string }
     const [monthA, yearA] = a.title.split(" ");
     const [monthB, yearB] = b.title.split(" ");
 
-    const yearDiff = parseInt(yearA) - parseInt(yearB); // ascending year
+    const yearDiff = parseInt(yearB) - parseInt(yearA); // ascending year
     if (yearDiff !== 0) return yearDiff;
 
-    const monthDiff = (monthOrder[monthA] || 0) - (monthOrder[monthB] || 0); // ascending month
+    const monthDiff = (monthOrder[monthB] || 0) - (monthOrder[monthA] || 0); // ascending month
     return monthDiff;
 }

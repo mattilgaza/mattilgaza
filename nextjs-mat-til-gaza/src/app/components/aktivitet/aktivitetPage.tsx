@@ -9,7 +9,6 @@ import { ArrowLeft, ChevronRight, Calendar } from "lucide-react";
 import { sortActivitiesByTitle } from "@/app/lib/sanity/sortActivities";
 import { hasActivityVideo } from "@/app/lib/hasActivityVideo";
 import SupportDiv from "@/app/components/SupportDiv";
-import Link from "next/link";
 
 interface Props {
     activities: ActivityDetail[];
@@ -32,18 +31,16 @@ export default function ActivityPage({ activities }: Props) {
         setSelected(activity);
     };
 
-    const aktivitet_forside = sortedActivities.find((a) => a.slug?.current === "aktivitet-forside");
-
     // DETAIL VIEW
     if (selected) {
         return (
-            <main className="mx-auto bg-background">
+            <main className="mx-auto">
 
-                <section className="bg-slate-200 p-16">
+                <section className="p-16">
 
                     <button
                         onClick={() => setSelected(null)}
-                        className="flex items-center gap-2 mb-8 text-slate-600 hover:text-black"
+                        className="flex items-center gap-2 mb-8 hover:underline"
                     >
                         <ArrowLeft className="w-4 h-4" />
                         Tilbake
@@ -53,11 +50,7 @@ export default function ActivityPage({ activities }: Props) {
                         {selected.title}
                     </div>
 
-                    {selected.body && (
-                        <div className="text-justify max-w-2xl">
-                            <PortableText value={selected.body} />
-                        </div>
-                    )}
+                    {selected.body && (<div className="text-justify max-w-2xl"><PortableText value={selected.body} /></div>)}
 
                 </section>
 
@@ -69,7 +62,7 @@ export default function ActivityPage({ activities }: Props) {
                             <div
                                 key={galleryItem._key || i}
                                 onClick={() => setSelected(selected)}
-                                className="w-full max-w-md aspect-[4/3] border-2 rounded-3xl bg-cotton hover:shadow-xl transition-shadow duration-300"
+                                className="w-full max-w-md aspect-[4/3] rounded-3xl hover:shadow-xl transition-shadow duration-300"
                             >
 
                                 {selected.gallery?.[0] && (
@@ -92,7 +85,7 @@ export default function ActivityPage({ activities }: Props) {
 
                         <button
                             onClick={() => setSelected(null)}
-                            className="flex items-center gap-2 mb-8 text-slate-600 hover:text-black"
+                            className="flex items-center gap-2 mb-8 hover:underline"
                         >
                             <ArrowLeft className="w-4 h-4" />
                             Tilbake
@@ -108,85 +101,101 @@ export default function ActivityPage({ activities }: Props) {
 
     // LIST VIEW
     return (
-        <main className="pt-16 pb-32 mx-auto px-16 bg-background">
+        <main className="pt-16 pb-32 mx-auto px-16">
 
             <section>
 
                 <div className="max-w-4xl">
 
-                    <div className="text-5xl font-black mb-4">{aktivitet_forside?.title}</div>
+                    <div className="text-5xl font-black mb-4">Vår Aktivitet</div>
 
                     <div className="text-lg">
-                        <PortableText value={aktivitet_forside?.body} />
+                        <div>
+                            Se hvordan bidragene deres hjelper. Her dokumenterer vi hver leveranse med bilder, video og/eller rapporter fra hjelpeapparatet i Gaza.
+                        </div>
                     </div>
 
                 </div>
 
-                <hr className="my-8" />
+                <hr className="my-8 ml-8" />
 
                 <div className="grid grid-cols-1 xl:grid-cols-[60%_40%] gap-8 items-start">
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {sortedActivities.map((activity) => (
-                            <div
-                                key={activity._id}
-                                onClick={() => handleSelect(activity)}
-                                className="group cursor-pointer border-2 rounded-3xl bg-cotton p-6 hover:shadow-xl transition-shadow duration-300"
-                            >
-                                {/* Card Hand Stack Visual */}
-                                <div className="relative h-64 mb-10 perspective-1000">
+                        {sortedActivities.map((activity) => {
 
-                                    {/* Bottom card */}
-                                    <div className="absolute inset-0 bg-slate-100 rounded-3xl shadow-md border border-slate-200 overflow-hidden transform -rotate-6 group-hover:-rotate-12 transition-all duration-500 opacity-80 scale-95 translate-y-4">
-                                        {activity.gallery?.[2] && (
-                                            <SanityImageFrame
-                                                gallery={activity.gallery.slice(2, 3)}
-                                                className="w-full h-full"
-                                            />
-                                        )}
-                                    </div>
+                            const gallery = activity.gallery ?? []
+                            const hasGallery = (activity.gallery?.length ?? 0) > 0
 
-                                    {/* Middle card */}
-                                    <div className="absolute inset-0 bg-slate-100 rounded-3xl shadow-lg border border-slate-200 overflow-hidden transform rotate-3 group-hover:rotate-6 transition-all duration-500 opacity-90 translate-y-2">
-                                        {activity.gallery?.[1] && (
-                                            <SanityImageFrame
-                                                gallery={activity.gallery.slice(1, 2)}
-                                                className="w-full h-full"
-                                            />
-                                        )}
-                                    </div>
+                            return (
 
-                                    {/* Top card */}
-                                    <div className="absolute inset-0 bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden transform group-hover:-translate-y-4 transition-all duration-500 z-10">
-                                        {activity.gallery?.[0] && (
-                                            <SanityImageFrame
-                                                gallery={activity.gallery.slice(0, 1)}
-                                                className="w-full h-full"
-                                            />
-                                        )}
+                                <div
+                                    key={activity._id}
+                                    onClick={() => handleSelect(activity)}
+                                    className="group cursor-pointer border-0 rounded-3xl p-6 hover:shadow-xl transition-shadow duration-300"
+                                >
+                                    {/* Card Hand Stack Visual OR Status */}
+                                    {hasGallery ? (
+                                        <div className="relative h-64 mb-10 perspective-1000">
+
+                                            {/* Bottom card */}
+                                            <div className="absolute inset-0 bg-slate-100 rounded-3xl shadow-md border border-slate-200 overflow-hidden transform -rotate-6 group-hover:-rotate-12 transition-all duration-500 opacity-80 scale-95 translate-y-4">
+                                                {gallery[2] && (
+                                                    <SanityImageFrame
+                                                        gallery={gallery.slice(2, 3)}
+                                                        className="w-full h-full"
+                                                    />
+                                                )}
+                                            </div>
+
+                                            {/* Middle card */}
+                                            <div className="absolute inset-0 bg-slate-100 rounded-3xl shadow-lg border border-slate-200 overflow-hidden transform rotate-3 group-hover:rotate-6 transition-all duration-500 opacity-90 translate-y-2">
+                                                {gallery[1] && (
+                                                    <SanityImageFrame
+                                                        gallery={gallery.slice(1, 2)}
+                                                        className="w-full h-full"
+                                                    />
+                                                )}
+                                            </div>
+
+                                            {/* Top card */}
+                                            <div className="absolute inset-0 bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden transform group-hover:-translate-y-4 transition-all duration-500 z-10">
+                                                {gallery[0] && (
+                                                    <SanityImageFrame
+                                                        gallery={gallery.slice(0, 1)}
+                                                        className="w-full h-full"
+                                                    />
+                                                )}
+                                            </div>
+
+                                        </div>
+                                    ) : (
+                                        <div className="h-64 mb-10 flex items-center justify-center rounded-3xl border border-dashed border-slate-300 bg-slate-50 text-slate-500 font-semibold tracking-wide">
+                                            Status Oppdatering
+                                        </div>
+                                    )}
+
+                                    {/* Text info */}
+                                    <div className="space-y-3">
+                                        <div className="flex items-center text-vipps-500 font-bold text-sm tracking-widest uppercase">
+                                            <Calendar className="w-4 h-4 mr-2" />
+                                            {activity.title}
+                                        </div>
+
+                                        <div className="text-sm line-clamp-2 leading-relaxed overflow-hidden">
+                                            {activity.subtitle}
+                                        </div>
+
+                                        <div className="flex items-center gap-2 font-bold text-sm pt-2 group-hover:translate-x-1 transition-transform">
+                                            Se detaljer <ChevronRight className="w-4 h-4" />
+                                        </div>
                                     </div>
                                 </div>
-
-                                {/* Text info */}
-                                <div className="space-y-3">
-                                    <div className="flex items-center text-vipps-500 font-bold text-sm tracking-widest uppercase">
-                                        <Calendar className="w-4 h-4 mr-2" />
-                                        {activity.title}
-                                    </div>
-
-                                    <div className="text-slate-500 text-sm line-clamp-2 leading-relaxed overflow-hidden">
-                                        {activity.subtitle}
-                                    </div>
-
-                                    <div className="flex items-center gap-2 text-slate-900 font-bold text-sm pt-2 group-hover:translate-x-1 transition-transform">
-                                        Se detaljer <ChevronRight className="w-4 h-4" />
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
+                            )
+                        })}
                     </div>
 
-                    <div className="mr-0 md:mr-8"><SupportDiv /></div>
+                    <div className="mt-6 mr-0 md:mr-8"><SupportDiv /></div>
 
                 </div>
 

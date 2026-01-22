@@ -11,13 +11,13 @@ export default async function Page() {
     const oct_2024 = await client.fetch(OCT_2024_QUERY);  // Fetch data
 
     return (
-        <main className="bg-background">
+        <main className="">
 
-            <section className="grid grid-cols-1 bg-slate-200 px-16 py-16">
+            <section className="grid grid-cols-1 px-16 py-16">
 
                 <div className="col-span-2">
 
-                    <button className="text-slate-600 hover:text-black">
+                    <button className="hover:underline">
                         <Link href="/aktivitet" className="flex items-center gap-2">
                             <ArrowLeft className="w-4 h-4" />
                             Tilbake
@@ -31,7 +31,7 @@ export default async function Page() {
 
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[40%_60%] bg-slate-200 px-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[40%_60%] px-16">
 
                     <div>
                         {oct_2024.body && (
@@ -52,7 +52,7 @@ export default async function Page() {
 
             </section>
 
-            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-16">
+            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-16 bg-cotton dark:bg-gray-800">
 
                 {oct_2024.gallery.slice(0, 10).map((image: SanityImageType) => (
                     <div
@@ -68,7 +68,7 @@ export default async function Page() {
 
             </section>
 
-            <section className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-[70%_30%] xl:grid-cols-[60%_25%] justify-center items-center gap-4 bg-gray-200 p-16">
+            <section className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-[70%_30%] xl:grid-cols-[60%_25%] justify-center items-center gap-4 p-16">
 
                 <div className="justify-center items-center px-8 text-justify mt-6 mr-0 xl:mr-12">
 
@@ -90,7 +90,7 @@ export default async function Page() {
 
             </section>
 
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-4 px-16 pb-16 justify-center bg-gray-200">
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-4 px-16 pb-16 justify-center">
 
                 <div className="col-span-2 md:col-span-1 rounded-lg shadow-sm border-4 border-white aspect-video overflow-hidden">
                     <video
@@ -120,7 +120,7 @@ export default async function Page() {
 
                 <div className="grid col-span-2 justify-center items-center my-8">
 
-                    <div className="text-center p-8 rounded-lg bg-cotton shadow-md">
+                    <div className="text-center p-8 rounded-lg bg-cotton dark:bg-gray-900 shadow-md">
 
                         <div className="font-bold text-xl mb-2">
                             Vil du bidra til neste leveranse?
@@ -141,7 +141,7 @@ export default async function Page() {
 
                 <div className="grid col-span-2 justify-center items-center mb-12">
 
-                    <button className="flex items-center gap-2 mb-8 text-slate-600 hover:text-black">
+                    <button className="flex items-center gap-2 mb-8 hover:underline">
                         <Link href="/aktivitet"><ArrowLeft className="w-4 h-4 inline-block mr-2" />Tilbake</Link>
                     </button>
 

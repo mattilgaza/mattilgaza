@@ -10,7 +10,7 @@ export default async function OmOssPage() {
     if (!vipps) return <p>Ingen innhold tilgjengelig.</p>;
 
     return (
-        <main className="flex flex-col md:flex-row gap-6 max-w-6xl mx-auto px-4 py-16">
+        <main className="flex flex-col md:flex-row gap-6 mx-auto px-16 py-16 bg-slate-200 dark:text-slate-900">
 
 
             <section className="bg-vipps w-full flex flex-col justify-center mt-6 bg-cotton rounded-lg shadow-sm p-6 text-center">

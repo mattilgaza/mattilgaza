@@ -12,13 +12,13 @@ export default async function Page() {
     const apr_2025 = await client.fetch(APR_2025_QUERY);
 
     return (
-        <main className="bg-background">
+        <main>
 
-            <section className="grid grid-cols-1 bg-slate-200 px-16 py-16">
+            <section className="grid grid-cols-1 px-16 py-16">
 
                 <div className="col-span-2">
 
-                    <button className="text-slate-600 hover:text-black">
+                    <button className="hover:underline">
                         <Link href="/aktivitet" className="flex items-center gap-2">
                             <ArrowLeft className="w-4 h-4" />
                             Tilbake
@@ -32,7 +32,7 @@ export default async function Page() {
 
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[40%_60%] bg-slate-200 px-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[40%_60%] px-16">
 
                     <div>
                         {apr_2025.body && (
@@ -69,7 +69,7 @@ export default async function Page() {
 
             </section>
 
-            <section className="grid grid-cols-1 bg-slate-200 gap-6 justify-center mx-auto px-4 mb-12 pt-16">
+            <section className="grid grid-cols-1 gap-6 justify-center mx-auto px-4 mb-12">
 
                 <div className="max-w-3xl px-16 mx-auto">
 
@@ -82,7 +82,7 @@ export default async function Page() {
 
                 <div className="grid col-span-2 justify-center items-center my-8">
 
-                    <div className="text-center p-8 rounded-lg bg-cotton shadow-md">
+                    <div className="text-center p-8 rounded-lg bg-cotton dark:bg-gray-900 shadow-md">
 
                         <div className="font-bold text-xl mb-2">
                             Vil du bidra til neste leveranse?
@@ -103,7 +103,7 @@ export default async function Page() {
 
                 <div className="grid col-span-2 justify-center items-center mb-12">
 
-                    <button className="flex items-center gap-2 mb-8 text-slate-600 hover:text-black">
+                    <button className="flex items-center gap-2 mb-8 hover:underline">
                         <Link href="/aktivitet"><ArrowLeft className="w-4 h-4 inline-block mr-2" />Tilbake</Link>
                     </button>
 

@@ -34,15 +34,15 @@ export default async function Page() {
                     <div className="mt-8">
 
                         <button>
-                            <a href="/aktivitet" className="text-2xl font-size-xl font-bold text-cotton mb-6 bg-gray-800 border-2 border-gray-700 px-4 py-2 rounded-lg hover:bg-gray-700">Se hvordan donasjonene hjelper!</a>
+                            <a href="/aktivitet" className="text-2xl font-size-xl shadow-[10px_10px_15px_rgba(0,0,0,0.35)] font-bold text-cotton mb-6 bg-gray-800 border-2 border-gray-700 px-4 py-2 rounded-lg hover:bg-gray-700">Se hvordan donasjonene hjelper!</a>
                         </button>
 
                     </div>
                 </div>
 
             </section>
-
-            <section className="grid grid-cols-1 md:grid-cols-2 rounded-lg p-8 bg-background items-center my-12">
+            <hr className="mx-12 mt-12" />
+            <section className="grid grid-cols-1 md:grid-cols-2 rounded-lg p-8 items-center my-12">
 
                 <div className="mx-auto mb-4">
                     <div className="text-4xl mb-4 font-bold">{om_foreningen.title}</div>

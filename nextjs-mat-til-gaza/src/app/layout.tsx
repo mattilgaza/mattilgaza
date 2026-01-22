@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Quicksand } from "next/font/google";
 import "tailwindcss/tailwind.css"
 import "./globals.css";
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
+import NavBar from "@/app/components/NavBar";
+import Footer from "@/app/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,7 +39,7 @@ export default function RootLayout({
         <NavBar />
 
         {/* Page content */}
-        <main className="flex-grow font-quicksand">{children}</main>
+        <main className="flex-grow font-quicksand bg-slate-100 dark:bg-slate-800">{children}</main>
 
         {/* Footer appears on all pages */}
         <Footer />

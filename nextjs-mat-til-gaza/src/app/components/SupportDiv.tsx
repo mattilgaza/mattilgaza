@@ -9,7 +9,7 @@ export default function SupportSection() {
 
         <div className="max-w-2xl mx-auto">
 
-            <div className="p-8 shadow-lg rounded-lg bg-cotton">
+            <div className="p-8 shadow-lg rounded-lg bg-cotton dark:bg-gray-900">
 
                 <div className="font-bold text-xl mb-2">
                     Vil du bidra til neste leveranse?

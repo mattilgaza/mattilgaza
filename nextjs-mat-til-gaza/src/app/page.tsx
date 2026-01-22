@@ -1,4 +1,3 @@
-// app/page.tsx (or pages/index.tsx in Pages Router)
 import { client } from "@/app/lib/sanity/client";
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
@@ -13,7 +12,7 @@ export default async function Page() {
     <>
       <main className="flex flex-col">
 
-        <section className="relative w-full min-h-[100svh] overflow-hidden bg-gray-700">
+        <section className="relative w-full min-h-[100svh] overflow-hidden">
           <video
             className="absolute inset-0 w-full h-full object-cover"
             autoPlay
@@ -76,7 +75,7 @@ export default async function Page() {
           <div className="">
             <Link
               href="/om_oss"
-              className="px-6 mx-6 py-2 bg-gray-800 text-white rounded hover:bg-gray-700"
+              className="px-6 mx-6 py-2 bg-gray-800 dark:bg-gray-600 text-white rounded hover:bg-gray-700 shadow-[10px_10px_15px_rgba(0,0,0,0.35)]"
             >
               Les mer om oss
             </Link>
