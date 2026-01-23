@@ -11,9 +11,9 @@ export default async function Page() {
     const jan_2025 = await client.fetch(JAN_2025_QUERY);  // Fetch data
 
     return (
-        <main className="bg-background">
+        <main className="">
 
-            <section className="grid grid-cols-1 bg-slate-200 px-16 py-16">
+            <section className="grid grid-cols-1 px-4 md:px-16 py-4 md:py-16">
 
                 <div className="col-span-2">
 
@@ -31,7 +31,7 @@ export default async function Page() {
 
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[40%_60%] bg-slate-200 px-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[40%_60%] px-4 md:px-16">
 
                     <div>
                         {jan_2025.body && (
@@ -69,7 +69,7 @@ export default async function Page() {
             </section>
 
 
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-4 px-16 pb-12 justify-center bg-gray-200">
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-4 px-4 md:px-16 pb-12 justify-center">
 
                 <div className="grid col-span-2 justify-center items-center mt-12">
 
@@ -94,7 +94,7 @@ export default async function Page() {
 
                 <div className="grid col-span-2 justify-center items-center mb-12">
 
-                    <button className="flex items-center gap-2 mb-8 text-slate-600 hover:text-black">
+                    <button className="flex items-center gap-2 mb-8 text-slate-600 hover:underline">
                         <Link href="/aktivitet"><ArrowLeft className="w-4 h-4 inline-block mr-2" />Tilbake</Link>
                     </button>
 

@@ -54,7 +54,7 @@ export default function ActivityPage({ activities }: Props) {
 
                 </section>
 
-                <section className="px-16 pt-8">
+                <section className="px-4 md:px-16 pt-8">
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
 
@@ -77,9 +77,9 @@ export default function ActivityPage({ activities }: Props) {
 
                 </section>
 
-                <section className="mt-12 pt-12">
+                <section className="">
 
-                    <div className="mx-16 mb-12"><SupportDiv /></div>
+                    <div className="mx-auto p-4 md:p-16 mb-12"><SupportDiv /></div>
 
                     <div className="grid col-span-2 justify-center items-center mb-12">
 
@@ -101,7 +101,7 @@ export default function ActivityPage({ activities }: Props) {
 
     // LIST VIEW
     return (
-        <main className="pt-16 pb-32 mx-auto px-16">
+        <main className="pt-4 md:pt-16 pb-32 mx-auto px-4 md:px-16">
 
             <section>
 
@@ -117,7 +117,7 @@ export default function ActivityPage({ activities }: Props) {
 
                 </div>
 
-                <hr className="my-8 ml-8" />
+                <hr className="my-4" />
 
                 <div className="grid grid-cols-1 xl:grid-cols-[60%_40%] gap-8 items-start">
 
@@ -170,8 +170,8 @@ export default function ActivityPage({ activities }: Props) {
 
                                         </div>
                                     ) : (
-                                        <div className="h-64 mb-10 flex items-center justify-center rounded-3xl border border-dashed border-slate-300 bg-slate-50 text-slate-500 font-semibold tracking-wide">
-                                            Status Oppdatering
+                                        <div className="mb-4">
+                                            Oppdatering fra teamet
                                         </div>
                                     )}
 

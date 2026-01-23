@@ -14,7 +14,7 @@ export default async function Page() {
     return (
         <main>
 
-            <section className="grid grid-cols-1 px-16 py-16">
+            <section className="grid grid-cols-1 px-4 md:px-16 py-4 md:py-16">
 
                 <div className="col-span-2">
 
@@ -32,7 +32,7 @@ export default async function Page() {
 
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[40%_60%] px-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[40%_60%]">
 
                     <div>
                         {apr_2025.body && (
@@ -53,7 +53,7 @@ export default async function Page() {
 
             </section>
 
-            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-16">
+            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4 md:p-16">
 
                 {apr_2025.gallery.slice(0, 10).map((image: SanityImageType) => (
                     <div
@@ -69,9 +69,9 @@ export default async function Page() {
 
             </section>
 
-            <section className="grid grid-cols-1 gap-6 justify-center mx-auto px-4 mb-12">
+            <section className="grid grid-cols-1 p-4 mx-auto mb-12">
 
-                <div className="max-w-3xl px-16 mx-auto">
+                <div className="max-w-3xl md:px-16 mx-auto">
 
                     <video className="w-full rounded-lg" autoPlay controls muted loop>
                         <source src="/videos/sending_4_2.mp4" type="video/mp4" />

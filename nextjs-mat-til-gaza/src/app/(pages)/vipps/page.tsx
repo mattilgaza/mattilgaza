@@ -10,10 +10,10 @@ export default async function OmOssPage() {
     const vipps = await client.fetch(VIPPS_QUERY);
 
     return (
-        <main className="grid grid-col-1 max-w-5xl gap-6 mx-auto px-4 md:px-16 py-16">
+        <main className="grid grid-col-1 max-w-5xl mx-auto px-4 md:px-16 py-4 md:py-16">
 
 
-            <section className="w-full mt-6 justify-center rounded-lg shadow-sm p-6 text-center">
+            <section className="w-full justify-center shadow-sm text-center">
 
                 <div className="bg-vipps rounded-[2.5rem] p-8">
 
@@ -24,7 +24,7 @@ export default async function OmOssPage() {
 
             </section>
 
-            <section className="w-full rounded-lg shadow-sm p-6 text-center mt-6">
+            <section className="w-full rounded-lg shadow-sm pt-4 md:p-12 text-center mb-24">
 
                 <div className="bg-slate-900 rounded-[2.5rem] p-8 md:p-12 shadow-xl shadow-slate-900/20 text-white flex flex-col animate-in fade-in slide-in-from-right-8 duration-700">
                     <div className="flex justify-between items-start mb-10">

@@ -13,7 +13,7 @@ export default async function Page() {
     return (
         <main className="">
 
-            <section className="grid grid-cols-1 px-16 py-16">
+            <section className="grid grid-cols-1 px-4 md:px-16 py-4 md:py-16">
 
                 <div className="col-span-2">
 
@@ -31,7 +31,7 @@ export default async function Page() {
 
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[40%_60%] px-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[40%_60%] px-4 md:px-16">
 
                     <div>
                         {oct_2024.body && (
@@ -68,7 +68,7 @@ export default async function Page() {
 
             </section>
 
-            <section className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-[70%_30%] xl:grid-cols-[60%_25%] justify-center items-center gap-4 p-16">
+            <section className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-[70%_30%] xl:grid-cols-[60%_25%] justify-center items-center gap-4 md:p-16">
 
                 <div className="justify-center items-center px-8 text-justify mt-6 mr-0 xl:mr-12">
 
@@ -81,7 +81,7 @@ export default async function Page() {
 
                 </div>
 
-                <div className="w-full max-w-md aspect-[3/4] mx-auto">
+                <div className="w-full max-w-md aspect-[3/4] mx-auto p-4">
                     <SanityImageFrame
                         gallery={oct_2024.gallery.slice(10)}
                         className="w-full h-full rounded-2xl overflow-hidden"
@@ -90,7 +90,7 @@ export default async function Page() {
 
             </section>
 
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-4 px-16 pb-16 justify-center">
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-4 px-4 md:px-16 pb-4 justify-center">
 
                 <div className="col-span-2 md:col-span-1 rounded-lg shadow-sm border-4 border-white aspect-video overflow-hidden">
                     <video
