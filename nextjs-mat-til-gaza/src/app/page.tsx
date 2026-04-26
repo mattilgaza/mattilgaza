@@ -12,20 +12,15 @@ export default async function Page() {
     <>
       <main className="flex flex-col">
 
-        <section
-          // className="relative w-full min-h-[100svh] overflow-hidden"
-          className="relative w-full aspect-video overflow-hidden"
-        >
+        <section className="relative w-full h-[100dvh] md:h-[100svh] overflow-hidden">
           <video
-            className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110"
+            className="hidden md:block absolute inset-0 w-full h-full object-cover blur-2xl scale-110"
             autoPlay muted loop playsInline
           >
             <source src="/videos/teltleir.mp4" />
           </video>
-
-          {/* Sharp foreground */}
           <video
-            className="relative mx-auto h-full object-contain"
+            className="absolute inset-0 w-full h-full object-cover md:object-contain"
             autoPlay muted loop playsInline
           >
             <source src="/videos/teltleir.mp4" />
