@@ -16,17 +16,6 @@ export default async function Page() {
           // className="relative w-full min-h-[100svh] overflow-hidden"
           className="relative w-full aspect-video overflow-hidden"
         >
-          {/* <video
-            // className="absolute inset-0 w-full h-full object-cover"
-            className="absolute inset-0 h-full w-auto object-contain"
-            autoPlay
-            muted
-            loop
-            playsInline
-          >
-            <source src="/videos/teltleir.mp4" type="video/mp4" />
-          </video> */}
-
           <video
             className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110"
             autoPlay muted loop playsInline
