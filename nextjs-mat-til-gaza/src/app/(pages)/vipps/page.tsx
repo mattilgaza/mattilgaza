@@ -1,13 +1,16 @@
 import { client } from "@/app/lib/sanity/client";
 import { PortableText } from "@portabletext/react";
 import { Globe } from "lucide-react"
-
+// import { VIPPS_QUERY, BANKKONTO_QUERY } from "../../types/sanity/groq_queries";
 
 const VIPPS_QUERY = `*[_type == "vipps" && slug.current == "vipps"][0]{title, subtitle, body}`;
+const BANKKONTO_QUERY = `*[_type == "bankkonto" && slug.current == "bankkonto"][0]{title, subtitle, body}`;
+
 
 export default async function OmOssPage() {
 
     const vipps = await client.fetch(VIPPS_QUERY);
+    const bankkonto = await client.fetch(BANKKONTO_QUERY);
 
     return (
         <main className="grid grid-col-1 max-w-5xl mx-auto px-4 md:px-16 py-4 md:py-16">
@@ -19,6 +22,17 @@ export default async function OmOssPage() {
 
                     <div className="text-2xl font-size-xl">{vipps.title}</div>
                     <div className="text-3xl font-size-xl font-bold text-cotton m-4">{vipps.subtitle}</div>
+
+                </div>
+
+            </section>
+
+            <section className="w-full justify-center shadow-sm text-center mt-4 md:mt-12">
+
+                <div className="bg-bankkonto rounded-[2.5rem] p-8">
+
+                    <div className="text-2xl font-size-xl">Du kan også overføre til vår bankkonto i Melhusbanken</div>
+                    <div className="text-3xl font-size-xl font-bold text-cotton m-4">4230 17 90346</div>
 
                 </div>
 

@@ -117,3 +117,6 @@ export const APR_2025_QUERY = `*[_type == "aktivitet" && slug.current == "april-
   _key,
   _type
 }`;
+
+export const VIPPS_QUERY = `*[_type == "vipps" && slug.current == "vipps"][0]{title, subtitle, body}`;
+export const BANKKONTO_QUERY = `*[_type == "bankkonto" && slug.current == "bankkonto"][0]{title, subtitle, body}`;

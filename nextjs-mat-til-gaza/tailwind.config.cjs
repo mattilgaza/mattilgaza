@@ -10,7 +10,8 @@ module.exports = {
       colors: {
         'cotton': '#FFFBF6',
         'vipps': '#ff5b24',
-        'background': '#fce9e983'
+        'background': '#fce9e983',
+        'bankkonto': '#014f3e'
       },
       fontFamily: {
         // Here we link the class 'font-quicksand' to the variable we made in Step 1
